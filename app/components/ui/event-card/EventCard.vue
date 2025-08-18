@@ -48,26 +48,26 @@ const isTargetMet = joined >= target;
 <template>
   <Card
     :class="[
-      'overflow-hidden transition-all duration-300 hover:shadow-card cursor-pointer',
+      'overflow-hidden transition-all duration-300 hover:shadow-card cursor-pointer pt-0',
     ]"
     @click="onView"
   >
     <div class="relative">
-      <img :src="image" alt="{title}" class="w-full h-48 object-cover" />
+      <img :src="image" :alt="title" class="w-full h-48 object-cover" />
       <div class="absolute top-3 left-3">
-        <Badge variant="secondary" class="text-xs"> {category} </Badge>
+        <Badge variant="secondary" class="text-xs"> {{category}} </Badge>
       </div>
       <div class="absolute top-3 right-3">
         <Badge
           :variant="isActive ? 'default' : 'secondary'"
           :class="['text-xs', isActive ? 'gradient-primary' : '']"
         >
-          {{isActive ? timeLeft : status.replace("-", " ")}}
+          {{ isActive ? timeLeft : status.replace("-", " ") }}
         </Badge>
       </div>
     </div>
 
-    <CardContent class="p-4 space-y-4">
+    <CardContent class="p-4 gap-x-4">
       <!-- Title and Seller -->
       <div class="space-y-2">
         <h3 class="font-semibold text-lg leading-tight line-clamp-2">
@@ -98,7 +98,7 @@ const isTargetMet = joined >= target;
       <div class="space-y-2">
         <div class="flex items-center justify-between text-sm">
           <span class="text-muted-foreground">Progress</span>
-          <span class="font-medium">{joined}/{target}</span>
+          <span class="font-medium">{{ joined }}/{{ target }}</span>
         </div>
         <Progress
           :value="progress"
@@ -112,17 +112,16 @@ const isTargetMet = joined >= target;
       >
         <div class="flex items-center space-x-1">
           <Users class="h-4 w-4" />
-          <span>{{joined}} joined</span>
+          <span>{{ joined }} joined</span>
         </div>
         <div class="flex items-center space-x-1">
           <Clock class="h-4 w-4" />
-          <span>{{timeLeft}}</span>
+          <span>{{ timeLeft }}</span>
         </div>
       </div>
 
       <!-- {/* Action Button */} -->
       <Button
-        @click.stop="onBuy"
         :disabled="!isActive || isTargetMet"
         :class="[
           'w-full mt-4',

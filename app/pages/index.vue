@@ -94,31 +94,43 @@ const categories = [
 ];
 
 const statusFilters = ["All Status", "Active", "Ending Soon", "Completed"];
+
+
+useSeoMeta({
+  title : "Home - Discover Amazing Deals",
+  ogTitle : "Home - Discover Amazing Deals",
+  description: "Join events for just $1 and win exclusive prizes. Explore a variety of categories and find the best deals.",
+  ogDescription: "Join events for just $1 and win exclusive prizes. Explore a variety of categories and find the best deals.",
+  ogImage: "https://example.com/og-image.jpg",
+  ogUrl: "https://example.com",
+  twitterCard: "summary_large_image"
+})
 </script>
 
 <template>
-  <div className="container max-w-md mx-auto pb-20 pt-4 px-4 space-y-6">
+  <div class="container max-w-md mx-auto pb-20 pt-4 px-4 space-y-6">
     <!-- Hero Section -->
-    <div className="text-center space-y-2 py-6">
-      <h1 className="text-2xl font-bold">Discover Amazing Deals</h1>
-      <p className="text-muted-foreground">
+    <div class="text-center space-y-2 py-6">
+      <h1 class="text-2xl font-bold">Discover Amazing Deals</h1>
+      <p class="text-muted-foreground">
         Join events for just $1 and win exclusive prizes
       </p>
     </div>
 
     <!-- Search and Filters -->
-    <div className="space-y-3">
-      <div className="relative">
+    <div class="space-y-3">
+      <div class="relative flex items-center">
         <Search
-          className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground"
+          class="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground"
+          size="16"
         />
-        <Input placeholder="Search events..." className="pl-10 h-12" />
+        <Input placeholder="Search events..." class="pl-10 h-12 w-full border-input" />
       </div>
 
-      <div className="flex space-x-2">
+      <div class="flex space-x-2">
         <Select
         >
-          <SelectTrigger className="flex-1">
+          <SelectTrigger class="flex-1">
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
@@ -129,8 +141,8 @@ const statusFilters = ["All Status", "Active", "Ending Soon", "Completed"];
         </Select>
 
         <Select>
-          <SelectTrigger className="flex-1">
-            <Filter className="mr-2 h-4 w-4" />
+          <SelectTrigger class="flex-1">
+            <Filter class="mr-2 h-4 w-4" />
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
@@ -147,20 +159,20 @@ const statusFilters = ["All Status", "Active", "Ending Soon", "Completed"];
     </div>
 
     <!-- Featured Badge -->
-    <div className="flex items-center justify-center space-x-2 py-2">
-      <Sparkles className="h-4 w-4 text-primary" />
-      <span className="text-sm font-medium text-primary">Featured Events</span>
-      <Sparkles className="h-4 w-4 text-primary" />
+    <div class="flex items-center justify-center space-x-2 py-2">
+      <Sparkles class="h-4 w-4 text-primary" />
+      <span class="text-sm font-medium text-primary">Featured Events</span>
+      <Sparkles class="h-4 w-4 text-primary" />
     </div>
 
     <!-- Events Grid -->
-    <div className="space-y-4">
-      <!-- <EventCard v-for="value in mockEvents" :key="value.id" v-bind="value" /> -->
+    <div class="space-y-4 flex flex-col">
+      <EventCard v-for="value in mockEvents" :key="value.id" v-bind="value" />
     </div>
 
     <!-- Load More -->
-    <div className="text-center pt-4">
-      <Button variant="outline" className="w-full"> Load More Events </Button>
+    <div class="text-center pt-4">
+      <Button variant="outline" class="w-full"> Load More Events </Button>
     </div>
   </div>
 </template>

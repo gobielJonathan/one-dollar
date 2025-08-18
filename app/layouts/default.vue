@@ -8,7 +8,7 @@ import BottomNav from "./BottomNav.vue";
   <Toaster position="bottom-right" />
   <main>
     <Header></Header>
-    <slot />
+    <slot></slot>
     <BottomNav></BottomNav>
   </main>
 </template>

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { NuxtLink } from "#components";
 import { BarChart3, Plus, Search, Settings, Ticket } from "lucide-vue-next";
 
 const navItems = [
@@ -15,9 +14,9 @@ const route = useRoute();
 
 <template>
   <nav
-    className="fixed bottom-0 left-0 right-0 z-50 border-t bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
+    class="fixed bottom-0 left-0 right-0 z-50 border-t bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
   >
-    <div className="grid grid-cols-5 h-16">
+    <div class="grid grid-cols-5 h-16">
       <NuxtLink
         v-for="item in navItems"
         :key="item.href"

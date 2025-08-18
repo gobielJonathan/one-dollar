@@ -24,16 +24,16 @@ const handleConnect = () => {
         >
           <span class="text-white font-bold text-sm">C</span>
         </div>
-        <span class="font-semibold text-lg">CouponDrop</span>
+        <span class="font-semibold text-lg">1$</span>
       </div>
 
       <Button
         v-if="!isConnected"
         @click="handleConnect"
         size="sm"
-        class="gradient-primary"
+        class="gradient-primary text-white"
       >
-        <Wallet class="mr-2 h-4 w-4" />
+        <Wallet class="mr-2 h-4 w-4 text-white"  />
         Connect Wallet
       </Button>
 
