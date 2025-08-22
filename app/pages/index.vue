@@ -95,16 +95,17 @@ const categories = [
 
 const statusFilters = ["All Status", "Active", "Ending Soon", "Completed"];
 
-
 useSeoMeta({
-  title : "Home - Discover Amazing Deals",
-  ogTitle : "Home - Discover Amazing Deals",
-  description: "Join events for just $1 and win exclusive prizes. Explore a variety of categories and find the best deals.",
-  ogDescription: "Join events for just $1 and win exclusive prizes. Explore a variety of categories and find the best deals.",
+  title: "Home - Discover Amazing Deals",
+  ogTitle: "Home - Discover Amazing Deals",
+  description:
+    "Join events for just $1 and win exclusive prizes. Explore a variety of categories and find the best deals.",
+  ogDescription:
+    "Join events for just $1 and win exclusive prizes. Explore a variety of categories and find the best deals.",
   ogImage: "https://example.com/og-image.jpg",
   ogUrl: "https://example.com",
-  twitterCard: "summary_large_image"
-})
+  twitterCard: "summary_large_image",
+});
 </script>
 
 <template>
@@ -122,14 +123,16 @@ useSeoMeta({
       <div class="relative flex items-center">
         <Search
           class="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground"
-          size="16"
+          :size="16"
         />
-        <Input placeholder="Search events..." class="pl-10 h-12 w-full border-input" />
+        <Input
+          placeholder="Search events..."
+          class="pl-10 h-12 w-full border-input"
+        />
       </div>
 
       <div class="flex space-x-2">
-        <Select
-        >
+        <Select>
           <SelectTrigger class="flex-1">
             <SelectValue />
           </SelectTrigger>

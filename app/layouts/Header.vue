@@ -11,6 +11,19 @@ const balance = ref("1.2453");
 const handleConnect = () => {
   isConnected.value = true;
 };
+
+const handleDisconnect = () => {
+  isConnected.value = false;
+  address.value = "";
+  balance.value = "";
+};
+
+const copyAddress = () => {
+  window.navigator.clipboard.writeText(address.value).catch(() => {
+    alert("Failed to copy address.");
+  });
+};
+
 </script>
 
 <template>
@@ -33,7 +46,7 @@ const handleConnect = () => {
         size="sm"
         class="gradient-primary text-white"
       >
-        <Wallet class="mr-2 h-4 w-4 text-white"  />
+        <Wallet class="mr-2 h-4 w-4 text-white" />
         Connect Wallet
       </Button>
 
@@ -52,11 +65,11 @@ const handleConnect = () => {
           </Button>
         </SheetTrigger>
         <SheetContent side="right" class="w-80">
-          <div class="py-6">
+          <div class="py-6 px-4">
             <div class="space-y-4">
               <div class="flex items-center space-x-3">
                 <div
-                  class="h-12 w-12 rounded-full bg-accent/20 flex items-center justify-center"
+                  class="h-12 w-12 rounded-full bg-sidebar-accent flex items-center justify-center"
                 >
                   <User class="h-6 w-6" />
                 </div>
@@ -77,12 +90,17 @@ const handleConnect = () => {
                   <User class="mr-2 h-4 w-4" />
                   View Profile
                 </Button>
-                <Button variant="outline" class="w-full justify-start">
+                <Button
+                  variant="outline"
+                  class="w-full justify-start"
+                  @click="copyAddress"
+                >
                   Copy Address
                 </Button>
                 <Button
                   variant="outline"
                   class="w-full justify-start text-destructive"
+                  @click="handleDisconnect"
                 >
                   Disconnect
                 </Button>
